@@ -20,6 +20,7 @@
     <string name="choose_exercise_subtitle">Pick an exercise to add to your workout.</string>
     <string name="current_workout">Current Workout</string>
     <string name="workout_notes">Workout Notes</string>
+    <string name="notes_hint">Optional notes about this workout</string>
     <string name="add_exercise">Add Exercise</string>
     <string name="save_workout">Save Workout</string>
     <string name="rest_timer_ready">Rest timer ready</string>
@@ -47,6 +48,7 @@
     <string name="toast_add_valid_set">Add at least one valid set before saving.</string>
     <string name="toast_invalid_set">Fix the incomplete set for %1$s before saving.</string>
     <string name="toast_workout_saved">Workout saved.</string>
+    <string name="toast_logging_ui_ready">LOGGING IS READY!!!!</string>
     <string name="toast_email_unavailable">No email app is available on this device.</string>
     <string name="toast_pick_exercise">Choose an exercise to begin.</string>
     <string name="toast_timer_started">Rest timer started for 60 seconds.</string>
