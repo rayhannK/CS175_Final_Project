@@ -12,6 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProjectGroup15">
         <activity
+            android:name=".FeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LogWorkoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectExerciseActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
