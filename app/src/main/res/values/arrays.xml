@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="exercise_catalog">
+        <item>Bench Press</item>
+        <item>Leg Press</item>
+        <item>Squat</item>
+        <item>Deadlift</item>
+        <item>Shoulder Press</item>
+        <item>Lat Pulldown</item>
+        <item>Seated Row</item>
+        <item>Bicep Curl</item>
+        <item>Tricep Pushdown</item>
+        <item>Plank</item>
+        <item>Treadmill Run</item>
+        <item>Elliptical</item>
+        <item>Push-Up</item>
+        <item>Pull-Up</item>
+        <item>Leg Curl</item>
+    </string-array>
+</resources>
