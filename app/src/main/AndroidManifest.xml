@@ -13,22 +13,28 @@
         android:theme="@style/Theme.FinalProjectGroup15">
         <activity
             android:name=".FeedbackActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SupportActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".WorkoutDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".HistoryActivity" />
         <activity
             android:name=".HistoryActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".LogWorkoutActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SelectExerciseActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
