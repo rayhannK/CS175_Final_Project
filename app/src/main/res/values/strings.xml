@@ -57,6 +57,7 @@
     <string name="history_counts_format">%1$d exercises • %2$d sets</string>
     <string name="history_time_range_format">%1$s - %2$s</string>
     <string name="detail_exercise_sets">%1$d sets</string>
+    <string name="workout_detail_missing">Workout not found.</string>
     <string name="detail_set_strength">Set %1$d: %2$s lbs x %3$s reps</string>
     <string name="detail_set_duration">Set %1$d: %2$s seconds</string>
     <string name="detail_set_mixed">Set %1$d: %2$s lbs, %3$s reps, %4$s sec</string>

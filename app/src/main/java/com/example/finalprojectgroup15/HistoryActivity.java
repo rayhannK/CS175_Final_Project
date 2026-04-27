@@ -1,5 +1,6 @@
 package com.example.finalprojectgroup15;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -32,7 +33,7 @@ public class HistoryActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        adapter = new WorkoutSummaryAdapter(new ArrayList<>());
+        adapter = new WorkoutSummaryAdapter(new ArrayList<>(), this::openWorkoutDetail);
         binding.historyRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.historyRecyclerView.setAdapter(adapter);
     }
@@ -50,6 +51,12 @@ public class HistoryActivity extends AppCompatActivity {
         boolean isEmpty = workouts.isEmpty();
         binding.emptyHistoryText.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
         binding.historyRecyclerView.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+    }
+
+    private void openWorkoutDetail(WorkoutSummary workout) {
+        Intent intent = new Intent(this, WorkoutDetailActivity.class);
+        intent.putExtra(WorkoutDetailActivity.EXTRA_WORKOUT_ID, workout.getId());
+        startActivity(intent);
     }
 
     @Override

@@ -14,10 +14,16 @@ import java.util.List;
 
 public class WorkoutSummaryAdapter extends RecyclerView.Adapter<WorkoutSummaryAdapter.ViewHolder> {
 
-    private final List<WorkoutSummary> items;
+    public interface OnWorkoutClickListener {
+        void onWorkoutClick(WorkoutSummary workout);
+    }
 
-    public WorkoutSummaryAdapter(List<WorkoutSummary> items) {
+    private final List<WorkoutSummary> items;
+    private final OnWorkoutClickListener listener;
+
+    public WorkoutSummaryAdapter(List<WorkoutSummary> items, OnWorkoutClickListener listener) {
         this.items = items;
+        this.listener = listener;
     }
 
     public void replaceItems(List<WorkoutSummary> workouts) {
@@ -51,6 +57,7 @@ public class WorkoutSummaryAdapter extends RecyclerView.Adapter<WorkoutSummaryAd
                 workout.getExerciseCount(),
                 workout.getSetCount()
         ));
+        holder.binding.getRoot().setOnClickListener(v -> listener.onWorkoutClick(workout));
     }
 
     @Override
