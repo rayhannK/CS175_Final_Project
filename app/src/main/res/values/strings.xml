@@ -54,6 +54,8 @@
     <string name="toast_timer_started">Rest timer started for 60 seconds.</string>
     <string name="toast_timer_finished">Rest timer finished.</string>
     <string name="home_recent_format">%1$s • %2$d exercises • %3$d sets</string>
+    <string name="history_counts_format">%1$d exercises • %2$d sets</string>
+    <string name="history_time_range_format">%1$s - %2$s</string>
     <string name="detail_exercise_sets">%1$d sets</string>
     <string name="detail_set_strength">Set %1$d: %2$s lbs x %3$s reps</string>
     <string name="detail_set_duration">Set %1$d: %2$s seconds</string>
