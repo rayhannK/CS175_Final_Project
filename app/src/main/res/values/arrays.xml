@@ -2,37 +2,71 @@
 <resources>
     <string-array name="exercise_catalog_chest">
         <item>Bench Press</item>
+        <item>Incline Bench Press</item>
+        <item>Dumbbell Bench Press</item>
+        <item>Chest Fly</item>
+        <item>Cable Crossover</item>
         <item>Push-Up</item>
     </string-array>
 
     <string-array name="exercise_catalog_legs">
-        <item>Leg Press</item>
         <item>Squat</item>
+        <item>Front Squat</item>
+        <item>Leg Press</item>
+        <item>Lunge</item>
+        <item>Bulgarian Split Squat</item>
+        <item>Leg Extension</item>
         <item>Leg Curl</item>
+        <item>Calf Raise</item>
     </string-array>
 
     <string-array name="exercise_catalog_back">
         <item>Deadlift</item>
+        <item>Romanian Deadlift</item>
         <item>Lat Pulldown</item>
         <item>Seated Row</item>
+        <item>Bent-Over Row</item>
+        <item>Single-Arm Dumbbell Row</item>
         <item>Pull-Up</item>
+        <item>Back Extension</item>
     </string-array>
 
     <string-array name="exercise_catalog_shoulders">
         <item>Shoulder Press</item>
+        <item>Dumbbell Shoulder Press</item>
+        <item>Lateral Raise</item>
+        <item>Front Raise</item>
+        <item>Rear Delt Fly</item>
+        <item>Face Pull</item>
+        <item>Shrug</item>
     </string-array>
 
     <string-array name="exercise_catalog_arms">
         <item>Bicep Curl</item>
+        <item>Hammer Curl</item>
+        <item>Preacher Curl</item>
         <item>Tricep Pushdown</item>
+        <item>Overhead Tricep Extension</item>
+        <item>Skull Crusher</item>
+        <item>Dip</item>
     </string-array>
 
     <string-array name="exercise_catalog_core">
         <item>Plank</item>
+        <item>Side Plank</item>
+        <item>Crunch</item>
+        <item>Russian Twist</item>
+        <item>Leg Raise</item>
+        <item>Mountain Climber</item>
+        <item>Bicycle Crunch</item>
     </string-array>
 
     <string-array name="exercise_catalog_cardio">
         <item>Treadmill Run</item>
+        <item>Stationary Bike</item>
         <item>Elliptical</item>
+        <item>Rowing Machine</item>
+        <item>Stair Climber</item>
+        <item>Jump Rope</item>
     </string-array>
 </resources>

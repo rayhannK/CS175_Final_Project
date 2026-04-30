@@ -15,7 +15,7 @@ public final class ExerciseCatalog {
 
     public static List<String> getExercises(Context context) {
         List<ExerciseGroup> groups = getExerciseGroups(context);
-        ArrayList<String> exercises = new ArrayList<>();
+        List<String> exercises = new ArrayList<>();
         for (ExerciseGroup group : groups) {
             exercises.addAll(group.getExercises());
         }

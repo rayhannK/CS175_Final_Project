@@ -59,13 +59,11 @@ public class ExerciseOptionAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ListItem item = items.get(position);
         if (holder instanceof GroupHeaderViewHolder) {
-            ((GroupHeaderViewHolder) holder).binding.exerciseGroupNameText.setText(item.label);
+            ((GroupHeaderViewHolder) holder).bind(item.label);
             return;
         }
 
-        ExerciseViewHolder exerciseHolder = (ExerciseViewHolder) holder;
-        exerciseHolder.binding.exerciseNameText.setText(item.label);
-        exerciseHolder.binding.getRoot().setOnClickListener(v -> listener.onExerciseClick(item.label));
+        ((ExerciseViewHolder) holder).bind(item.label, listener);
     }
 
     @Override
@@ -85,6 +83,10 @@ public class ExerciseOptionAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             super(binding.getRoot());
             this.binding = binding;
         }
+
+        void bind(String groupName) {
+            binding.exerciseGroupNameText.setText(groupName);
+        }
     }
 
     static class ExerciseViewHolder extends RecyclerView.ViewHolder {
@@ -93,6 +95,11 @@ public class ExerciseOptionAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         ExerciseViewHolder(RowExerciseOptionBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+        }
+
+        void bind(String exerciseName, OnExerciseClickListener listener) {
+            binding.exerciseNameText.setText(exerciseName);
+            binding.getRoot().setOnClickListener(v -> listener.onExerciseClick(exerciseName));
         }
     }
 
