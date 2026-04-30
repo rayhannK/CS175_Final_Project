@@ -31,7 +31,7 @@ public class SelectExerciseActivity extends AppCompatActivity {
 
         binding.exerciseRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.exerciseRecyclerView.setAdapter(new ExerciseOptionAdapter(
-                ExerciseCatalog.getExercises(this),
+                ExerciseCatalog.getExerciseGroups(this),
                 this::handleExerciseSelected
         ));
     }

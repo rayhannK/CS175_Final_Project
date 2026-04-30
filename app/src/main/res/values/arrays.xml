@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="exercise_catalog">
+    <string-array name="exercise_catalog_chest">
         <item>Bench Press</item>
+        <item>Push-Up</item>
+    </string-array>
+
+    <string-array name="exercise_catalog_legs">
         <item>Leg Press</item>
         <item>Squat</item>
+        <item>Leg Curl</item>
+    </string-array>
+
+    <string-array name="exercise_catalog_back">
         <item>Deadlift</item>
-        <item>Shoulder Press</item>
         <item>Lat Pulldown</item>
         <item>Seated Row</item>
+        <item>Pull-Up</item>
+    </string-array>
+
+    <string-array name="exercise_catalog_shoulders">
+        <item>Shoulder Press</item>
+    </string-array>
+
+    <string-array name="exercise_catalog_arms">
         <item>Bicep Curl</item>
         <item>Tricep Pushdown</item>
+    </string-array>
+
+    <string-array name="exercise_catalog_core">
         <item>Plank</item>
+    </string-array>
+
+    <string-array name="exercise_catalog_cardio">
         <item>Treadmill Run</item>
         <item>Elliptical</item>
-        <item>Push-Up</item>
-        <item>Pull-Up</item>
-        <item>Leg Curl</item>
     </string-array>
 </resources>

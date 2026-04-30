@@ -6,53 +6,111 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.finalprojectgroup15.databinding.RowExerciseGroupHeaderBinding;
 import com.example.finalprojectgroup15.databinding.RowExerciseOptionBinding;
+import com.example.finalprojectgroup15.util.ExerciseCatalog;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ExerciseOptionAdapter extends RecyclerView.Adapter<ExerciseOptionAdapter.ViewHolder> {
+public class ExerciseOptionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    private static final int VIEW_TYPE_GROUP_HEADER = 0;
+    private static final int VIEW_TYPE_EXERCISE = 1;
 
     public interface OnExerciseClickListener {
         void onExerciseClick(String exerciseName);
     }
 
-    private final List<String> exercises;
+    private final List<ListItem> items = new ArrayList<>();
     private final OnExerciseClickListener listener;
 
-    public ExerciseOptionAdapter(List<String> exercises, OnExerciseClickListener listener) {
-        this.exercises = exercises;
+    public ExerciseOptionAdapter(List<ExerciseCatalog.ExerciseGroup> exerciseGroups, OnExerciseClickListener listener) {
         this.listener = listener;
+        for (ExerciseCatalog.ExerciseGroup group : exerciseGroups) {
+            items.add(ListItem.groupHeader(group.getName()));
+            for (String exerciseName : group.getExercises()) {
+                items.add(ListItem.exercise(exerciseName));
+            }
+        }
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (viewType == VIEW_TYPE_GROUP_HEADER) {
+            RowExerciseGroupHeaderBinding binding = RowExerciseGroupHeaderBinding.inflate(
+                    LayoutInflater.from(parent.getContext()),
+                    parent,
+                    false
+            );
+            return new GroupHeaderViewHolder(binding);
+        }
+
         RowExerciseOptionBinding binding = RowExerciseOptionBinding.inflate(
                 LayoutInflater.from(parent.getContext()),
                 parent,
                 false
         );
-        return new ViewHolder(binding);
+        return new ExerciseViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String exerciseName = exercises.get(position);
-        holder.binding.exerciseNameText.setText(exerciseName);
-        holder.binding.getRoot().setOnClickListener(v -> listener.onExerciseClick(exerciseName));
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        ListItem item = items.get(position);
+        if (holder instanceof GroupHeaderViewHolder) {
+            ((GroupHeaderViewHolder) holder).binding.exerciseGroupNameText.setText(item.label);
+            return;
+        }
+
+        ExerciseViewHolder exerciseHolder = (ExerciseViewHolder) holder;
+        exerciseHolder.binding.exerciseNameText.setText(item.label);
+        exerciseHolder.binding.getRoot().setOnClickListener(v -> listener.onExerciseClick(item.label));
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return items.get(position).viewType;
     }
 
     @Override
     public int getItemCount() {
-        return exercises.size();
+        return items.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
-        private final RowExerciseOptionBinding binding;
+    static class GroupHeaderViewHolder extends RecyclerView.ViewHolder {
+        private final RowExerciseGroupHeaderBinding binding;
 
-        ViewHolder(RowExerciseOptionBinding binding) {
+        GroupHeaderViewHolder(RowExerciseGroupHeaderBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+        }
+    }
+
+    static class ExerciseViewHolder extends RecyclerView.ViewHolder {
+        private final RowExerciseOptionBinding binding;
+
+        ExerciseViewHolder(RowExerciseOptionBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+    }
+
+    private static class ListItem {
+        private final int viewType;
+        private final String label;
+
+        private ListItem(int viewType, String label) {
+            this.viewType = viewType;
+            this.label = label;
+        }
+
+        static ListItem groupHeader(String label) {
+            return new ListItem(VIEW_TYPE_GROUP_HEADER, label);
+        }
+
+        static ListItem exercise(String label) {
+            return new ListItem(VIEW_TYPE_EXERCISE, label);
         }
     }
 }

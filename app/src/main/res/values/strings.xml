@@ -18,6 +18,13 @@
     <string name="feedback_title">Feedback</string>
     <string name="placeholder_text">Screen under construction</string>
     <string name="choose_exercise_subtitle">Pick an exercise to add to your workout.</string>
+    <string name="exercise_group_chest">Chest</string>
+    <string name="exercise_group_legs">Legs</string>
+    <string name="exercise_group_back">Back</string>
+    <string name="exercise_group_shoulders">Shoulders</string>
+    <string name="exercise_group_arms">Arms</string>
+    <string name="exercise_group_core">Core</string>
+    <string name="exercise_group_cardio">Cardio</string>
     <string name="current_workout">Current Workout</string>
     <string name="workout_notes">Workout Notes</string>
     <string name="notes_hint">Optional notes about this workout</string>
