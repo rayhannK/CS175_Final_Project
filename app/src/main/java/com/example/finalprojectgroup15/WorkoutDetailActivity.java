@@ -49,6 +49,9 @@ public class WorkoutDetailActivity extends AppCompatActivity {
             return;
         }
 
+        String workoutName = workout.getWorkoutName().isEmpty() ? "None" : workout.getWorkoutName();
+        binding.workoutNameText.setText(getString(R.string.workout_name_format, workoutName));
+
         binding.workoutDateText.setText(getString(R.string.workout_date_format, workout.getWorkoutDate()));
         binding.workoutTimeText.setText(getString(
                 R.string.workout_time_format,

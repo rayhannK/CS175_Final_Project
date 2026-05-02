@@ -11,11 +11,17 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/workoutNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textStyle="bold"/>
+
+        <TextView
             android:id="@+id/workoutDateText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceTitleMedium"
-            android:textStyle="bold" />
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
 
         <TextView
             android:id="@+id/workoutTimeText"

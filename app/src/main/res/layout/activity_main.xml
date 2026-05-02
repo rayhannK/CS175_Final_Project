@@ -58,6 +58,14 @@
             android:layout_marginTop="10dp"
             android:text="@string/feedback" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/gymReminderButton"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/gymReminder" />
+
         <TextView
             android:id="@+id/quickStatsTitle"
             android:layout_width="match_parent"
@@ -97,5 +105,6 @@
             android:layout_height="wrap_content"
             android:text="@string/no_workouts_yet"
             android:textAppearance="?attr/textAppearanceBodyLarge" />
+
     </LinearLayout>
 </ScrollView>

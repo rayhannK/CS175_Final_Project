@@ -3,6 +3,7 @@ package com.example.finalprojectgroup15.model;
 public class WorkoutSummary {
 
     private final long id;
+    private final String workoutName;
     private final String workoutDate;
     private final String startTime;
     private final String endTime;
@@ -11,6 +12,7 @@ public class WorkoutSummary {
 
     public WorkoutSummary(
             long id,
+            String workoutName,
             String workoutDate,
             String startTime,
             String endTime,
@@ -18,6 +20,7 @@ public class WorkoutSummary {
             int setCount
     ) {
         this.id = id;
+        this.workoutName = workoutName; //app crashes bc of database issue... not having workoutName (want to include workoutName when viewing history)
         this.workoutDate = workoutDate;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -27,6 +30,10 @@ public class WorkoutSummary {
 
     public long getId() {
         return id;
+    }
+
+    public String getWorkoutName() {
+        return workoutName;
     }
 
     public String getWorkoutDate() {

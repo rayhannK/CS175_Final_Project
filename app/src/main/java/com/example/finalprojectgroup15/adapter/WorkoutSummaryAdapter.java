@@ -46,6 +46,7 @@ public class WorkoutSummaryAdapter extends RecyclerView.Adapter<WorkoutSummaryAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         WorkoutSummary workout = items.get(position);
+        holder.binding.workoutNameText.setText(workout.getWorkoutName());
         holder.binding.workoutDateText.setText(workout.getWorkoutDate());
         holder.binding.workoutTimeText.setText(holder.binding.getRoot().getContext().getString(
                 R.string.history_time_range_format,

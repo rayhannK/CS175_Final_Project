@@ -145,7 +145,13 @@ public class LogWorkoutActivity extends AppCompatActivity {
         String workoutTime = TIME_FORMAT.format(now);
         String notes = binding.notesInput.getText().toString().trim();
 
+        String workoutName = binding.optionalName.getText().toString().trim();
+        if (workoutName.isEmpty()) {
+            workoutName = "";
+        }
+
         long workoutId = databaseHelper.saveWorkout(
+                workoutName,
                 workoutDate,
                 workoutTime,
                 workoutTime,

@@ -19,13 +19,14 @@ import java.util.List;
 public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "workout_tracker.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private static final String TABLE_WORKOUTS = "workouts";
     private static final String TABLE_EXERCISES = "exercises";
     private static final String TABLE_SETS = "sets";
 
     private static final String COL_ID = "_id";
+    private static final String COL_WORKOUT_NAME = "workout_name";
     private static final String COL_WORKOUT_DATE = "workout_date";
     private static final String COL_START_TIME = "start_time";
     private static final String COL_END_TIME = "end_time";
@@ -44,7 +45,8 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
             + COL_WORKOUT_DATE + " TEXT NOT NULL, "
             + COL_START_TIME + " TEXT, "
             + COL_END_TIME + " TEXT, "
-            + COL_NOTES + " TEXT"
+            + COL_NOTES + " TEXT, "
+            + COL_WORKOUT_NAME + " TEXT "
             + ");";
 
     private static final String CREATE_EXERCISES = "CREATE TABLE " + TABLE_EXERCISES + " ("
@@ -90,9 +92,9 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long createWorkout(String workoutDate, String startTime, String endTime, String notes) {
+    public long createWorkout(String workoutName, String workoutDate, String startTime, String endTime, String notes) {
         SQLiteDatabase db = getWritableDatabase();
-        return insertWorkout(db, workoutDate, startTime, endTime, notes);
+        return insertWorkout(db, workoutName, workoutDate, startTime, endTime, notes);
     }
 
     public long addExerciseToWorkout(long workoutId, String exerciseName, int exerciseOrder) {
@@ -106,6 +108,7 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
     }
 
     public long saveWorkout(
+            String workoutName,
             String workoutDate,
             String startTime,
             String endTime,
@@ -115,7 +118,7 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
-            long workoutId = insertWorkout(db, workoutDate, startTime, endTime, notes);
+            long workoutId = insertWorkout(db, workoutName, workoutDate, startTime, endTime, notes);
             for (ExerciseInput exercise : exercises) {
                 long exerciseId = insertExercise(
                         db,
@@ -144,7 +147,7 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
     public List<WorkoutSummary> getAllWorkouts() {
         List<WorkoutSummary> workouts = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        String query = "SELECT w." + COL_ID + ", w." + COL_WORKOUT_DATE + ", w." + COL_START_TIME + ", w."
+        String query = "SELECT w." + COL_ID + ", w." + COL_WORKOUT_NAME + ", w." + COL_WORKOUT_DATE + ", w." + COL_START_TIME + ", w."
                 + COL_END_TIME + ", "
                 + "(SELECT COUNT(*) FROM " + TABLE_EXERCISES + " e WHERE e." + COL_WORKOUT_ID + " = w." + COL_ID + ") AS exercise_count, "
                 + "(SELECT COUNT(*) FROM " + TABLE_SETS + " s JOIN " + TABLE_EXERCISES + " e2 ON s." + COL_EXERCISE_ID + " = e2." + COL_ID
@@ -158,8 +161,9 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
-                        cursor.getInt(4),
-                        cursor.getInt(5)
+                        cursor.getString(4),
+                        cursor.getInt(5),
+                        cursor.getInt(6)
                 ));
             }
         }
@@ -172,7 +176,7 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
         String[] workoutArgs = {String.valueOf(workoutId)};
         try (Cursor workoutCursor = db.query(
                 TABLE_WORKOUTS,
-                new String[]{COL_ID, COL_WORKOUT_DATE, COL_START_TIME, COL_END_TIME, COL_NOTES},
+                new String[]{COL_ID, COL_WORKOUT_NAME, COL_WORKOUT_DATE, COL_START_TIME, COL_END_TIME, COL_NOTES},
                 COL_ID + " = ?",
                 workoutArgs,
                 null,
@@ -189,6 +193,7 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
                     workoutCursor.getString(2),
                     workoutCursor.getString(3),
                     workoutCursor.getString(4),
+                    workoutCursor.getString(5),
                     new ArrayList<>()
             );
 
@@ -245,8 +250,9 @@ public class WorkoutDatabaseHelper extends SQLiteOpenHelper {
         return sets;
     }
 
-    private long insertWorkout(SQLiteDatabase db, String workoutDate, String startTime, String endTime, String notes) {
+    private long insertWorkout(SQLiteDatabase db, String workoutName, String workoutDate, String startTime, String endTime, String notes) {
         ContentValues values = new ContentValues();
+        values.put(COL_WORKOUT_NAME, workoutName);
         values.put(COL_WORKOUT_DATE, workoutDate);
         values.put(COL_START_TIME, startTime);
         values.put(COL_END_TIME, endTime);

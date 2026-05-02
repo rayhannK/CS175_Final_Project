@@ -10,11 +10,17 @@
     tools:context=".WorkoutDetailActivity">
 
     <TextView
+        android:id="@+id/workoutNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadlineMedium"
+        android:textStyle="bold"/>
+
+    <TextView
         android:id="@+id/workoutDateText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?attr/textAppearanceHeadlineSmall"
-        android:textStyle="bold" />
+        android:textAppearance="?attr/textAppearanceHeadlineSmall" />
 
     <TextView
         android:id="@+id/workoutTimeText"

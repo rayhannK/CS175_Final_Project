@@ -6,6 +6,7 @@
     <string name="view_history">View History</string>
     <string name="support">Support</string>
     <string name="feedback">Feedback</string>
+    <string name="gymReminder">Gym Reminder</string>
     <string name="quick_stats_title">Quick Stats</string>
     <string name="total_workouts_label">Total workouts</string>
     <string name="recent_workout_label">Most recent workout</string>
@@ -28,6 +29,7 @@
     <string name="current_workout">Current Workout</string>
     <string name="workout_notes">Workout Notes</string>
     <string name="notes_hint">Optional notes about this workout</string>
+    <string name="optionalName">Add Name to Workout (optional)</string>
     <string name="add_exercise">Add Exercise</string>
     <string name="save_workout">Save Workout</string>
     <string name="rest_timer_ready">Rest timer ready</string>
@@ -45,6 +47,7 @@
     <string name="workout_date_format">Date: %1$s</string>
     <string name="workout_time_format">Time: %1$s - %2$s</string>
     <string name="workout_notes_format">Notes: %1$s</string>
+    <string name="workout_name_format">Name: %1$s</string>
     <string name="support_body">Commit is a workout tracker, focused on logging exercises, adding unlimited sets, and reviewing workout history.</string>
     <string name="support_section_project">Technology Stack</string>
     <string name="support_project_details">Commit is an Android project made using Java views and SQLite storage.</string>

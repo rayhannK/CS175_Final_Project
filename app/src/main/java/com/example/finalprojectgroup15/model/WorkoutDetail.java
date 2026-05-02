@@ -5,6 +5,7 @@ import java.util.List;
 public class WorkoutDetail {
 
     private final long id;
+    private final String workoutName;
     private final String workoutDate;
     private final String startTime;
     private final String endTime;
@@ -13,6 +14,7 @@ public class WorkoutDetail {
 
     public WorkoutDetail(
             long id,
+            String workoutName,
             String workoutDate,
             String startTime,
             String endTime,
@@ -20,6 +22,7 @@ public class WorkoutDetail {
             List<ExerciseWithSets> exercises
     ) {
         this.id = id;
+        this.workoutName = workoutName;
         this.workoutDate = workoutDate;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -30,6 +33,7 @@ public class WorkoutDetail {
     public long getId() {
         return id;
     }
+    public String getWorkoutName() {return workoutName; }
 
     public String getWorkoutDate() {
         return workoutDate;
