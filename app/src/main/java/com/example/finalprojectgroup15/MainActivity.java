@@ -1,5 +1,7 @@
 package com.example.finalprojectgroup15;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SupportActivity.class)));
         binding.feedbackButton.setOnClickListener(v ->
                 startActivity(new Intent(this, FeedbackActivity.class)));
+        binding.gymReminderButton.setOnClickListener(v ->
+                startActivity(new Intent(this, GymReminder.class)));
     }
 
     @Override

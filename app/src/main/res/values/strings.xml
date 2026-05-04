@@ -77,4 +77,19 @@
     <string name="detail_set_mixed">Set %1$d: %2$s lbs, %3$s reps, %4$s sec</string>
     <string name="untitled_notes">None</string>
     <string name="action_up">Navigate up</string>
+    <string name="set_reminder_time">Set Reminder Time</string>
+    <string name="repeat_on">Repeat on</string>
+    <string name="monday">M</string>
+    <string name="tuesday">T</string>
+    <string name="wednesday">W</string>
+    <string name="thursday">T</string>
+    <string name="friday">F</string>
+    <string name="saturday">S</string>
+    <string name="sunday">S</string>
+    <string name="reminder_status">Reminder is OFF</string>
+    <string name="set_reminder">Set Reminder</string>
+    <string name="cancel_reminder">Cancel Reminder</string>
+    <string name="gym_reminder">Gym Reminder</string>
+    <string name="one_day_error">Please select at least one day.</string>
+    <string name="reminder_cancelled">Reminder Cancelled</string>
 </resources>
