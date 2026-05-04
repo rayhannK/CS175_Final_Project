@@ -16,6 +16,7 @@ import com.example.finalprojectgroup15.databinding.ActivityLogWorkoutBinding;
 import com.example.finalprojectgroup15.databinding.ViewLoggedExerciseCardBinding;
 import com.example.finalprojectgroup15.databinding.ViewSetRowBinding;
 import com.example.finalprojectgroup15.data.WorkoutDatabaseHelper;
+import com.example.finalprojectgroup15.util.ExerciseIconMapper;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -82,6 +83,8 @@ public class LogWorkoutActivity extends AppCompatActivity {
                 false
         );
         cardBinding.exerciseNameText.setText(exerciseName);
+        int iconRes = ExerciseIconMapper.getIconResId(this, exerciseName);
+        cardBinding.exerciseIconImage.setImageResource(iconRes);
 
         cardBinding.addSetButton.setOnClickListener(v -> addSetRow(cardBinding));
         cardBinding.removeExerciseButton.setOnClickListener(v ->
