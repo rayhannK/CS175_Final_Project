@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalprojectgroup15.databinding.RowExerciseGroupHeaderBinding;
 import com.example.finalprojectgroup15.databinding.RowExerciseOptionBinding;
 import com.example.finalprojectgroup15.util.ExerciseCatalog;
+import com.example.finalprojectgroup15.util.ExerciseIconMapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,6 +100,8 @@ public class ExerciseOptionAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
         void bind(String exerciseName, OnExerciseClickListener listener) {
             binding.exerciseNameText.setText(exerciseName);
+            int iconRes = ExerciseIconMapper.getIconResId(binding.getRoot().getContext(), exerciseName);
+            binding.exerciseIconImage.setImageResource(iconRes);
             binding.getRoot().setOnClickListener(v -> listener.onExerciseClick(exerciseName));
         }
     }
