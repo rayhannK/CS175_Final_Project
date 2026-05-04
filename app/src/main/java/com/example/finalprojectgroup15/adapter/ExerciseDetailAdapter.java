@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalprojectgroup15.R;
 import com.example.finalprojectgroup15.databinding.RowExerciseDetailBinding;
 import com.example.finalprojectgroup15.model.ExerciseWithSets;
+import com.example.finalprojectgroup15.util.ExerciseIconMapper;
 import com.example.finalprojectgroup15.model.SetEntry;
 
 import java.util.List;
@@ -42,6 +43,9 @@ public class ExerciseDetailAdapter extends RecyclerView.Adapter<ExerciseDetailAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ExerciseWithSets exercise = items.get(position);
         holder.binding.exerciseNameText.setText(exercise.getExerciseName());
+        int iconRes = ExerciseIconMapper.getIconResId(
+                holder.binding.getRoot().getContext(), exercise.getExerciseName());
+        holder.binding.exerciseIconImage.setImageResource(iconRes);
         holder.binding.setCountText.setText(holder.binding.getRoot().getContext().getString(
                 R.string.detail_exercise_sets,
                 exercise.getSets().size()
