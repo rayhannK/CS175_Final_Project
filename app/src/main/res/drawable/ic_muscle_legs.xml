@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Leg / thigh outline -->
+    <path
+        android:fillColor="#757575"
+        android:pathData="M7,2L9,2L10,8L11,14L10,18L9,22L7,22L8,18L7,14L6,8ZM15,2L17,2L18,8L17,14L16,18L17,22L15,22L14,18L13,14L14,8Z" />
+</vector>

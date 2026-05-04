@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Bicep / arm flexing -->
+    <path
+        android:fillColor="#757575"
+        android:pathData="M5.5,3L3.5,3C3.5,3 2,7 2,9.5C2,12 3.5,13 5,13L7,13L7,15C7,17 8,19.5 8,21L10,21C10,21 10,17.5 10,15.5L10,13L12,13C13,13 14.5,12.5 15,11C15.5,9.5 15,7 14,5L12,5C12,5 13,7.5 13,9C13,10.5 12.5,11 12,11L5,11C4.5,11 4,10.5 4,9.5C4,7.5 5.5,3 5.5,3ZM17,6L19,6L20,10L21,16L22,21L20,21L19,16L18,10Z" />
+</vector>
