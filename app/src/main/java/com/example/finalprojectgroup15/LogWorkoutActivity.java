@@ -194,10 +194,10 @@ public class LogWorkoutActivity extends AppCompatActivity {
             Integer reps = parseInteger(repsText);
             Integer duration = parseInteger(durationText);
 
-            boolean strengthSet = reps != null && duration == null;
-            boolean durationSet = duration != null && reps == null && weight == null;
+            boolean hasReps = reps != null && reps > 0;
+            boolean hasDuration = duration != null && duration > 0;
 
-            if (!strengthSet && !durationSet) {
+            if (!hasReps && !hasDuration) {
                 Toast.makeText(
                         this,
                         getString(R.string.toast_invalid_set, exerciseName),
