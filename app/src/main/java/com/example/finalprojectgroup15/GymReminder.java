@@ -1,8 +1,10 @@
 package com.example.finalprojectgroup15;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.pm.PackageManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +14,10 @@ import android.provider.Settings;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.finalprojectgroup15.databinding.ActivityReminderBinding;
 import com.google.android.material.button.MaterialButton;
@@ -30,6 +35,14 @@ public class GymReminder extends AppCompatActivity {
     private SharedPreferences prefs;
     private final boolean[] selectedDays = new boolean[7];
     // 0 = Mon, 1 = Tues, 2 = Wed, 3 = Thu, 4 = Fri, 5 = Sat, 6 = Sun
+    private final ActivityResultLauncher<String> notificationPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
+                if (granted) {
+                    saveAndSchedule();
+                } else {
+                    Toast.makeText(this, "Notification permission is required for reminders.", Toast.LENGTH_LONG).show();
+                }
+            });
 
 
     @Override
@@ -81,6 +94,13 @@ public class GymReminder extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void saveAndSchedule() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+                && ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
+            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
+            return;
+        }
+
         int hour = binding.timePicker.getHour();
         int minute = binding.timePicker.getMinute();
 
